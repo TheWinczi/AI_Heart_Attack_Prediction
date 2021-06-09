@@ -14,7 +14,7 @@ def decision_tree(x_train, x_test, y_train, y_test):
 
 
 def random_forest(x_train, x_test, y_train, y_test):
-    forest = RandomForestClassifier(n_estimators=50, criterion='gini', max_depth=5, n_jobs=4, random_state=1)
+    forest = RandomForestClassifier(n_estimators=55, criterion='entropy', max_depth=5, n_jobs=4, random_state=1)
     forest.fit(x_train, y_train)
 
     y_pred = forest.predict(x_test)
@@ -22,17 +22,16 @@ def random_forest(x_train, x_test, y_train, y_test):
 
 
 def knn_classifier(x_train, x_test, y_train, y_test):
-    knn = KNeighborsClassifier(n_neighbors=5, metric='minkowski')
+    knn = KNeighborsClassifier(n_neighbors=14, metric='minkowski')
     knn.fit(x_train, y_train)
 
     y_pred = knn.predict(x_test)
     print(f"KNN: {accuracy_score(y_test, y_pred)}")
 
 
-def svn_classifier(x_train, x_test, y_train, y_test):
+def svc_classifier(x_train, x_test, y_train, y_test):
+    svc = SVC(C=1.0, kernel='rbf', random_state=1)
+    svc.fit(x_train, y_train)
 
-    svn = SVC(C=1.0, kernel='rbf', random_state=1)
-    svn.fit(x_train, y_train)
-
-    y_pred = svn.predict(x_test)
+    y_pred = svc.predict(x_test)
     print(f"SVN: {accuracy_score(y_test, y_pred)}")
