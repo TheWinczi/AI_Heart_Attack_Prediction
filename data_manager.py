@@ -18,9 +18,6 @@ def process_data(data: DataFrame):
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=1, stratify=y)
 
-    print(np.bincount(y_test))
-    print(np.bincount(y_train))
-
     std = StandardScaler()
     std.fit(x_train)
     x_train_std = std.transform(x_train)
