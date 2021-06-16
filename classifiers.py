@@ -11,6 +11,7 @@ def decision_tree(x_train, x_test, y_train, y_test):
 
     y_pred = tree.predict(x_test)
     print(f"Decision Tree: {accuracy_score(y_test, y_pred)}")
+    return tree
 
 
 def random_forest(x_train, x_test, y_train, y_test):
@@ -19,6 +20,7 @@ def random_forest(x_train, x_test, y_train, y_test):
 
     y_pred = forest.predict(x_test)
     print(f"Random forest: {accuracy_score(y_test, y_pred)}")
+    return forest
 
 
 def knn_classifier(x_train, x_test, y_train, y_test):
@@ -27,6 +29,7 @@ def knn_classifier(x_train, x_test, y_train, y_test):
 
     y_pred = knn.predict(x_test)
     print(f"KNN: {accuracy_score(y_test, y_pred)}")
+    return knn
 
 
 def svc_classifier(x_train, x_test, y_train, y_test):
@@ -35,3 +38,4 @@ def svc_classifier(x_train, x_test, y_train, y_test):
 
     y_pred = svc.predict(x_test)
     print(f"SVN: {accuracy_score(y_test, y_pred)}")
+    return svc

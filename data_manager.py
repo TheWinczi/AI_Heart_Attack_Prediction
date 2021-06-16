@@ -2,6 +2,9 @@ from pandas import read_csv, DataFrame
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import numpy as np
+import matplotlib.pyplot as plt
+
+
 
 
 def load_data():
@@ -25,3 +28,39 @@ def process_data(data: DataFrame):
 
     return x_train_std, x_test_std, y_train, y_test
 
+
+def draw_importances_diagram(importances: list[float], labels: list[str]):
+    indices = np.argsort(importances)[::-1]
+
+    plt.figure()
+    plt.title("Features importances")
+    plt.bar(range(len(importances)),
+            importances[indices],
+            align='center')
+
+    plt.xticks(range(len(labels)),
+               labels[indices],
+               rotation=90)
+
+    plt.tight_layout()
+    plt.show()
+
+
+def process_data_using_importances(data: DataFrame, gamma: float, forest, diagram: bool = False):
+    importances = forest.feature_importances_
+    labels = data.columns.to_numpy()[:-1]
+    indices = np.argsort(importances)[::-1]
+
+    if diagram:
+        draw_importances_diagram(importances, labels)
+
+    sum = 0
+    new_labels = ['output']
+    for index in indices:
+        if sum > gamma:
+            break
+        else:
+            new_labels.append(labels[index])
+            sum += importances[index]
+
+    return process_data(data[new_labels])
