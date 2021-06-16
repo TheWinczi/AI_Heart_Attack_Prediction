@@ -1,4 +1,5 @@
-# AI Supervised learning from data - Hearth Attack Prediction
+# Hearth Attack Prediction
+## AI Supervised learning from data
 ***Created in June 2021***
 
 ---
