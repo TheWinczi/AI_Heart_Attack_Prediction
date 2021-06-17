@@ -14,12 +14,11 @@ def main():
     data = load_data()
 
     x_train, x_test, y_train, y_test = process_data(data)
-    print(len(x_train), len(x_test))
 
     print("Before significance filter:")
     tree, forest, knn, svc = lunch_classifiers(x_train, x_test, y_train, y_test)
 
-    gamma = 0.75
+    gamma = 12
     x_train, x_test, y_train, y_test = process_data_using_importances(data, gamma, forest)
 
     print("\nAfter significance filter:")

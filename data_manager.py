@@ -54,13 +54,13 @@ def process_data_using_importances(data: DataFrame, gamma: float, forest, diagra
     if diagram:
         draw_importances_diagram(importances, labels)
 
-    sum = 0
-    new_labels = ['output']
-    for index in indices:
-        if sum > gamma:
+    new_labels = []
+    for i, index in enumerate(indices):
+        if i > gamma:
             break
         else:
             new_labels.append(labels[index])
-            sum += importances[index]
+
+    new_labels.append('output')
 
     return process_data(data[new_labels])

@@ -33,17 +33,20 @@ Considering all input vector data equally useful is the best classifier is Rando
 Using previously trained Random Forest it is easy to conclude what parts of input data are most useful. <br />
 Diagram of Random Forest features importances:
 
-![features_importances_diagram](diagrams/features_importances.png)
+![features_importances_chart](diagrams/features_importances.png)
 
-The moment that data was processed using these importances information results of classification was much better:
+Using *gamma* parameter in *process_data_using_importances()* it is easy to declare how many features are to be trained for classifiers. <be />
+Chart shows what is the best score of classifiers in function of the number features.
 
-## Part of data Results
+![classifiers_scores](diagrams/classifiers_scores.png)
+
+## 12 out of 14 features Results
 Algorithm       | max accuracy I reached    |
  -------------- | ------------------------- |
-KNN             |           100.%           |
-Decision Tree   |           100.%           |
-Random Forest   |           98.7%           |
-SVN             |           100.%           |
+KNN             |           82.9%           |
+Decision Tree   |           84.2%           |
+Random Forest   |           84.2%           |
+SVN             |           86.8%           |
 ---
 
 ## Technology used
