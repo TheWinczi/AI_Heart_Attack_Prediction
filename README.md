@@ -30,7 +30,7 @@ SVN             |           86.8%           |
 Considering all input vector data equally useful is the best classifier is Random Forest. 
 
 ---
-Using previously trained Random Forest it is easy to conclude what parts of input data are most useful.
+Using previously trained Random Forest it is easy to conclude what parts of input data are most useful. <br />
 Diagram of Random Forest features importances:
 
 ![features_importances_diagram](diagrams/features_importances.png)
